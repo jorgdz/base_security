@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="layout/layout :: head"></head>
+
+<body>
+		
+	<div class="container">
+		<div th:replace="layout/layout :: principal"></div>
+		
+		<a th:href="@{/create}" sec:authorize="hasAuthority('CREATE_USER')" class="btn btn-success" >Crear Usuario</a>	
+		
+		<hr>
+		
+		<table class="table">
+		  <thead class="thead-dark">
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">Nombres</th>
+		      <th scope="col">Apellidos</th>
+		      <th scope="col">Correo</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr th:each="user,iterator : ${users}">
+		      <th scope="row" th:text="${iterator.index + 1}"></th>
+		      <td th:text="${user.firstName}"></td>
+		      <td th:text="${user.lastName}"></td>
+		      <td th:text="${user.email}"></td>
+		    </tr>
+		  </tbody>
+		</table>
+		
+		<footer th:replace="layout/layout :: footer"></footer>	
+	</div>
+	
+</body>
+</html>

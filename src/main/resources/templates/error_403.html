@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+	<meta charset="UTF-8" />
+	<title>Error 403</title>
+</head>
+<body>
+	<main>
+		<section>
+			<div>Error: Acceso Denegado !!</div>
+			<article>
+				<h5>Lo sentimos <span th:text="${#authentication.name}"></span>, NO tienes permisos para acceder a este recurso.</h5>
+				<a th:href="@{/index}" role="button">Inicio</a>	
+			</article>
+		</section>
+	</main>
+</body>
+</html>
